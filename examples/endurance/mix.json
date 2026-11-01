@@ -1,0 +1,5 @@
+{
+  "music": [{ "file": "synth:pad", "from": 0, "fadeOut": 5 }],
+  "hits": [{ "file": "synth:boom", "at": 17.5 }, { "file": "synth:rise", "at": 40.0 }],
+  "musicVolume": 0.2
+}

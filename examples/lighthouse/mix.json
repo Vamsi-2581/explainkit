@@ -1,0 +1,9 @@
+{
+  "music": [{ "file": "synth:drone", "from": 0, "fadeOut": 4 }],
+  "hits": [
+    { "file": "synth:tick", "at": 22.2 },
+    { "file": "synth:tick", "at": 23.0 },
+    { "file": "synth:boom", "at": 34.0 }
+  ],
+  "musicVolume": 0.24
+}

@@ -1,0 +1,19 @@
+# "We build it, problem by problem": an original script for the explainer format where an object is
+# built by hitting one problem after another and fixing each one. Physics: buoyancy and stability.
+
+A steel boat floats. But steel is almost eight times denser than water. So let's build one, problem by problem.
+
+Problem one. A solid block of steel sinks like a stone.
+Fix. Carve out the middle. A hollow shape pushes aside more water, and that water pushes back. Now it floats.
+
+Problem two. Waves wash over the edge.
+Fix. Raise the walls, so there is room between the water and the rim.
+
+Problem three. Put a heavy load on one side, and it flips.
+Fix. Put the weight low, in a keel, so the boat rights itself.
+
+Problem four. It plows through the water slowly.
+Fix. Sharpen the front, so the water slides past instead of piling up.
+
+Four problems, four fixes, and that is a ship.
+Which problem should we solve next? Comment one word: sail, or engine.
