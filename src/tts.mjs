@@ -6,7 +6,7 @@
 //            the model (about 90 MB) is downloaded from Hugging Face the first time you use it.
 //              npm install kokoro-js && explainkit tts examples/boat --engine kokoro --voice af_heart
 // Check the license of the voice you choose before you publish what it says.
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { run, ffmpeg } from './util.mjs';
@@ -20,6 +20,7 @@ export function sentences(text) {
 export async function narrate({ scriptFile, out, engine = 'kokoro', voice = 'af_heart', cmd = null }) {
   const text = scriptText(readFileSync(scriptFile, 'utf8'));
   if (!text) throw new Error('the script is empty');
+  mkdirSync(path.dirname(out), { recursive: true });
   const tmp = mkdtempSync(path.join(tmpdir(), 'explainkit-tts-'));
   try {
     if (engine === 'command') {
