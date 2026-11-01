@@ -15,7 +15,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: FedericoCarboni/setup-ffmpeg@v3
-        id: ffmpeg
+        if: runner.os != 'macOS'
+      - run: brew install ffmpeg
+        if: runner.os == 'macOS'
       - run: npm ci
       - run: npx playwright install chromium --with-deps
         if: runner.os == 'Linux'
