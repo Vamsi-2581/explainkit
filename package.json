@@ -1,0 +1,21 @@
+{
+  "name": "explainkit",
+  "version": "0.1.0",
+  "description": "Turn a script and a narration into a vertical 2D explainer video (1080x1920) with captions, shots and a mixed soundtrack. Local, scriptable, MIT.",
+  "type": "module",
+  "bin": { "explainkit": "bin/explainkit.mjs" },
+  "files": ["bin", "src", "fonts", "examples", "README.md", "LICENSE"],
+  "scripts": {
+    "doctor": "node bin/explainkit.mjs doctor",
+    "example": "node bin/explainkit.mjs build examples/boat",
+    "example:day": "node bin/explainkit.mjs build examples/lighthouse",
+    "example:story": "node bin/explainkit.mjs build examples/endurance",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": { "playwright": "~1.62.1" },
+  "keywords": ["video", "explainer", "2d-animation", "canvas", "ffmpeg", "playwright", "faceless", "shorts", "reels", "tiktok", "vertical-video", "captions"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/itzjk/explainkit.git" },
+  "author": "ZERACK"
+}
