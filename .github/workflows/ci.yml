@@ -1,0 +1,33 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: FedericoCarboni/setup-ffmpeg@v3
+        id: ffmpeg
+      - run: npm ci
+      - run: npx playwright install chromium --with-deps
+        if: runner.os == 'Linux'
+      - run: npx playwright install chromium
+        if: runner.os != 'Linux'
+      - run: npm run doctor
+      - run: npm test
+      - name: Render a whole example end to end (Linux only)
+        if: runner.os == 'Linux'
+        run: |
+          node bin/explainkit.mjs build examples/lighthouse
+          ffprobe -v error -show_entries stream=codec_name,width,height,duration -of csv=p=0 examples/lighthouse/out/video.mp4
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Linux'
+        with: { name: lighthouse-video, path: examples/lighthouse/out/video.mp4 }
