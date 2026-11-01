@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { narrate, sentences } from '../src/tts.mjs';
 
-const FAKE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'fake-tts.mjs');
+const FAKE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'fixtures', 'fake-tts.mjs');
 
 test('sentences groups by paragraph and splits on . ! ?', () => {
   assert.deepEqual(sentences('One. Two! Three?\n\nFour.'), [['One.', 'Two!', 'Three?'], ['Four.']]);
